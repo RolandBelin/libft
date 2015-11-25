@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:07:52 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:08:27 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-void			*ft_memrchr(const void *s, int c, size_t n)
+void		*ft_memrchr(const void *s, INT32 c, size_t n)
 {
-	unsigned char	*t;
-	
-	t = (unsigned char *)s;
+	UINT8	*t;
+
+	t = (UINT8 *)s;
 	while (n > 0)
 	{
 		--n;

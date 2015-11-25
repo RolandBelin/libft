@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:02:46 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:03:18 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-static size_t	ft_itoa_intlen(long nbr)
+static size_t	ft_itoa_intlen(INT64 nbr)
 {
-	size_t	len;
-	
+	size_t		len;
+
 	len = 1;
 	if (nbr < 0)
 	{
@@ -18,15 +30,15 @@ static size_t	ft_itoa_intlen(long nbr)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+INT8			*ft_itoa(INT32 n)
 {
-	char	*ret;
-	size_t	len;
-	long 	nbr;
+	INT8		*ret;
+	size_t		len;
+	INT64		nbr;
 
 	nbr = n;
 	len = ft_itoa_intlen(nbr);
-	ret = (char *)malloc(sizeof(char) * (len + 1));
+	ret = (INT8 *)malloc(sizeof(INT8) * (len + 1));
 	if (ret)
 	{
 		ret[len] = '\0';
@@ -35,7 +47,7 @@ char		*ft_itoa(int n)
 		while (len)
 		{
 			--len;
-			ret[len] = 48 + nbr - ((nbr/10) * 10);
+			ret[len] = 48 + nbr - ((nbr / 10) * 10);
 			nbr = nbr / 10;
 		}
 		if (ret[0] == '0' && ret[1] != '\0')

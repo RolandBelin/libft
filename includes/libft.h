@@ -1,295 +1,209 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 21:42:35 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/25 01:12:49 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
-# include <stdio.h>
 
-# ifndef _Bool
-#  define _Bool int
-# endif
+# define BOOL			int
+# define TRUE			1
+# define FALSE			0
+# define UINT8			unsigned char
+# define UINT16			unsigned short
+# define UINT32			unsigned int
+# define UINT64			unsigned long
+# define INT8			char
+# define INT16			short
+# define INT32			int
+# define INT64			long
 
-# ifndef bool
-#  define bool _Bool
-# endif
+void					ft_putchar(INT32 c);
+void					ft_putchar_fd(INT8 c, INT32 fd);
+void					ft_putstr(const INT8 *str);
+void					ft_putstr_fd(const INT8 *str, INT32 fd);
+void					ft_putendl(const INT8 *str);
+void					ft_putendl_fd(const INT8 *str, INT32 fd);
+void					ft_putnbr(INT32 n);
+void					ft_putnbr_fd(INT32 n, INT32 fd);
 
-# ifndef boolean
-#  define boolean _Bool
-# endif
+void					ft_memdel(void **ap);
+void					*ft_memset(void *s, int c, size_t n);
+void					ft_bzero(void *b, size_t n);
+void					*ft_memalloc(size_t n);
+void					*ft_memcpy(void *dst, const void *src, size_t n);
+void					*ft_memccpy(void *d, const void *s, int c, size_t n);
+void					*ft_memmove(void *dst, const void *src, size_t n);
+void					*ft_memchr(const void *s, INT32 c, size_t n);
+void					*ft_memrchr(const void *s, INT32 c, size_t n);
+size_t					ft_memcmp(const void *s1, const void *s2, size_t n);
 
-# ifndef true
-#  define true 1
-# endif
+size_t					ft_strlen(const INT8 *s);
+INT8					*ft_strnew(size_t n);
+void					ft_strdel(INT8 **as);
+INT8					*ft_strcpy(INT8 *dst, const INT8 *src);
+INT8					*ft_strncpy(INT8 *dst, const INT8 *src, size_t n);
+INT8					*ft_strdup(const INT8 *s);
+INT8					*ft_strclr(INT8 *s);
+size_t					ft_strcmp(const INT8 *s1, const INT8 *s2);
+size_t					ft_strncmp(const INT8 *s1, const INT8 *s2, size_t i);
+INT8					*ft_strchr(const INT8 *s, INT32 c);
+INT8					*ft_strrchr(const INT8 *s, INT32 c);
+INT8					*ft_strcat(INT8 *dst, const INT8 *src);
+INT8					*ft_strncat(INT8 *dst, const INT8 *src, size_t n);
+INT8					*ft_strstr(const INT8 *s1, const INT8 *s2);
+INT8					*ft_strnstr(const INT8 *s1, const INT8 *s2, size_t n);
+INT8					*ft_strjoin(const INT8 *s1, const INT8 *s2);
+INT8					*ft_strsub(const INT8 *str, UINT32 st, size_t n);
+INT32					ft_strequ(const INT8 *s1, const INT8 *s2);
+INT32					ft_strnequ(const INT8 *s1, const INT8 *s2, size_t n);
+INT8					*ft_strtrim(const INT8 *s);
+INT8					**ft_strsplit(const INT8 *s, INT8 c);
+void					ft_striter(INT8 *s, void (*f)(INT8 *));
+void					ft_striteri(INT8 *s, void (*f)(UINT32, INT8 *));
+INT8					*ft_strmap(const INT8 *s, INT8 (*f)(INT8));
+INT8					*ft_strmapi(const INT8 *s, INT8 (*f)(UINT32, INT8));
+INT8					*ft_strtolower(INT8 *str);
+INT8					*ft_strtoupper(INT8 *str);
 
-# ifndef false
-#  define false 0
-# endif
+INT32					ft_atoi(const INT8 *nptr);
+INT8					*ft_itoa(INT32 n);
+INT8					**ft_atoaa(const INT8 *str, size_t cut);
+INT64					ft_atol(const INT8 *nptr);
+long long				ft_atoll(const INT8 *nptr);
+INT8					*ft_aatoa(INT8 **ar);
+INT8					*ft_aatona(INT8 **ar, size_t max);
 
-# ifndef bool
-#  define bool _Bool
-# endif
+INT32					ft_isupper(INT32 c);
+INT32					ft_islower(INT32 c);
+INT32					ft_isspace(INT32 c);
+INT32					ft_isalpha(INT32 c);
+INT32					ft_isdigit(INT32 c);
+INT32					ft_isalnum(INT32 c);
+INT32					ft_isascii(INT32 c);
+INT32					ft_isblank(INT32 c);
+INT32					ft_isxdigit(INT32 c);
+INT32					ft_ispunct(INT32 c);
+INT32					ft_isgraph(INT32 c);
+INT32					ft_isprint(INT32 c);
+INT32					ft_iscntrl(INT32 c);
+INT32					ft_tolower(INT32 c);
+INT32					ft_toupper(INT32 c);
 
-typedef unsigned char 	UInt8;
-typedef unsigned short 	UInt16;
-typedef unsigned int  	UInt32;
-typedef unsigned long 	UInt64;
-
-typedef char 		Int8;
-typedef short 		Int16;
-typedef int 		Int32;
-typedef long 		Int64;
-
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                     IO                                    #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-void			ft_putchar(int c);
-void			ft_putchar_fd(char c, int fd);
-void			ft_putstr(const char *str);
-void			ft_putstr_fd(const char *str, int fd);
-void			ft_putendl(const char *str);
-void			ft_putendl_fd(const char *str, int fd);
-void			ft_putnbr(int n);
-void			ft_putnbr_fd(int n, int fd);
-/*#######\                                                                   |#*/
-/* END IO \__________________________________________________________________/#*/
-/*############################################################################*/
-
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                   Memory                                  #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-void			ft_memdel(void **ap);
-void			*ft_memset(void *s, int c, size_t n);
-void			ft_bzero(void *b, size_t n);
-void			*ft_memalloc(size_t n);
-void			*ft_memcpy(void *dst, const void *src, size_t n);
-void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void			*ft_memmove(void *dst, const void *src, size_t n);
-void			*ft_memchr(const void *s, int c, size_t n);
-void			*ft_memrchr(const void *s, int c, size_t n);
-size_t			ft_memcmp(const void *s1, const void *s2, size_t n);
-/*##########\                                                                |#*/
-/* END QUEUE \_______________________________________________________________/#*/
-/*############################################################################*/
-
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                   String                                  #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-size_t			ft_strlen(const char *s);
-char			*ft_strnew(size_t n);
-void			ft_strdel(char **as);
-char			*ft_strcpy(char *dst, const char *src);
-char			*ft_strncpy(char *dst, const char *src, size_t n);
-char			*ft_strdup(const char *s);
-char			*ft_strclr(char *s);
-size_t			ft_strcmp(const char *s1, const char *s2);
-size_t			ft_strncmp(const char *s1, const char *s2, size_t i);
-char			*ft_strchr(const char *s, int c);
-char			*ft_strrchr(const char *s, int c);
-char			*ft_strcat(char *dst, const char *src);
-char			*ft_strncat(char *dst, const char *src, size_t n);
-char			*ft_strstr(const char *s1, const char *s2);
-char			*ft_strnstr(const char *s1, const char *s2, size_t n);
-char			*ft_strjoin(const char *s1, const char *s2);
-char			*ft_strsub(const char *str, unsigned int start, size_t n);
-int			ft_strequ(const char *s1, const char *s2);
-int			ft_strnequ(const char *s1, const char *s2, size_t n);
-char			*ft_strtrim(const char *s);
-char			**ft_strsplit(const char *s, char c);
-void			ft_striter(char *s, void (*f)(char *));
-void			ft_striteri(char *s, void (*f)(unsigned int, char *));
-char			*ft_strmap(const char *s, char (*f)(char));
-char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
-char 			*ft_strtolower(char *str);
-char 			*ft_strtoupper(char *str);
-/*###########\                                                               |#*/
-/*[END STRING \______________________________________________________________/#*/
-/*############################################################################*/
-
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                  Convert                                  #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-int			ft_atoi(const char *nptr);
-char			*ft_itoa(int n);
-char			**ft_atoaa(const char *str, size_t cut);
-long			ft_atol(const char *nptr);
-long long		ft_atoll(const char *nptr);
-char 			*ft_aatoa(char **ar);
-char 			*ft_aatona(char **ar, size_t max);
-/*############\                                                              |#*/
-/* END CONVERT \_____________________________________________________________/#*/
-/*############################################################################*/
-
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                    Char                                   #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-int			ft_isupper(int c);
-int			ft_islower(int c);
-int			ft_isspace(int c);
-int			ft_isalpha(int c);
-int			ft_isdigit(int c);
-int			ft_isalnum(int c);
-int			ft_isascii(int c);
-int			ft_isblank(int c);
-int			ft_isxdigit(int c);
-int	 		ft_ispunct(int c);
-int			ft_isgraph(int c);
-int			ft_isprint(int c);
-int			ft_iscntrl(int c);
-int			ft_tolower(int c);
-int			ft_toupper(int c);
-/*#########\                                                                 |#*/
-/* END CHAR \________________________________________________________________/#*/
-/*############################################################################*/
-
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                 LinkedList                                #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-typedef struct 		s_linkedlist
+typedef struct			s_segment
 {
-	size_t		Count;
-	struct 		s_segment *First;
-	struct 		s_segment *Last;
-}			t_linkedlist;
-typedef struct 		s_segment
+	void				*data;
+	struct s_segment	*next;
+	struct s_segment	*back;
+}						t_segment;
+typedef struct			s_linkedlist
 {
-	void		*data;
-	struct 		s_segment *next;
-	struct 		s_segment *back;
-}			t_segment;
-t_segment		*ft_segment_new(void);
-void	 		ft_segment_free(t_segment **seg, bool alsodata);
-t_segment 		*ft_segment_setData(t_segment *seg, void *data);
-void			*ft_segment_getData(t_segment *seg);
-void			*ft_segment_getDupdata(t_segment *seg);
-t_segment		*ft_segment_setNext(t_segment *seg, t_segment *next);
-t_segment		*ft_segment_setBack(t_segment *seg, t_segment *back);
-t_linkedlist	 	*ft_linkedlist_new();
-void 			 ft_linkedlist_free(t_linkedlist **ll, bool alsodata);
-void			ft_linkedlist_addFirst(t_linkedlist *ll, void *data);
-void			ft_linkedlist_addLast(t_linkedlist *ll, void *data);
-void			ft_linkedlist_addAt(t_linkedlist *ll, void *data, size_t i);
-void			*ft_linkedlist_getAt(t_linkedlist *ll, size_t index);
-t_segment		*ft_linkedlist_getSegat(t_linkedlist *ll, size_t index);
-void			ft_linkedlist_removeFirst(t_linkedlist *ll, bool b);
-void			ft_linkedlist_removeLast(t_linkedlist *ll, bool b);
-void			ft_linkedlist_removeAt(t_linkedlist *ll, size_t index, bool b);
-void 			ft_linkedlist_removeAll(t_linkedlist *ll, bool b);
-void			ft_linkedlist_expendLast(t_linkedlist *ll, size_t n);
-void			ft_linkedlist_expendFirst(t_linkedlist *ll, size_t n);
-void			ft_linkedlist_setAt(t_linkedlist *ll, void *data, size_t i);
-bool			ft_linkedlist_isEmpty(t_linkedlist *ll);
-bool 			ft_linkedlist_containIndex(t_linkedlist *ll, size_t index);
-/*###############\                                                          |#*/
-/* END LINKEDLIST \_________________________________________________________/#*/
-/*############################################################################*/
+	size_t				count;
+	struct s_segment	*first;
+	struct s_segment	*last;
+}						t_linkedlist;
 
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                  ArrayList                                #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-typedef struct 		s_arraylist
+t_segment				*ft_segment_new(void);
+void					ft_segment_free(t_segment **seg, BOOL alsodata);
+t_segment				*ft_segment_setdata(t_segment *seg, void *data);
+void					*ft_segment_getdata(t_segment *seg);
+void					*ft_segment_getdupdata(t_segment *seg);
+t_segment				*ft_segment_setnext(t_segment *seg, t_segment *next);
+t_segment				*ft_segment_setback(t_segment *seg, t_segment *back);
+t_linkedlist			*ft_linkedlist_new();
+void					ft_linkedlist_free(t_linkedlist **ll, BOOL alsodata);
+void					ft_linkedlist_addfirst(t_linkedlist *ll, void *data);
+void					ft_linkedlist_addlast(t_linkedlist *ll, void *data);
+void					ft_linkedlist_addat(t_linkedlist *l, void *d, size_t i);
+void					*ft_linkedlist_getat(t_linkedlist *ll, size_t index);
+t_segment				*ft_linkedlist_getsegat(t_linkedlist *ll, size_t index);
+void					ft_linkedlist_removefirst(t_linkedlist *ll, BOOL b);
+void					ft_linkedlist_removelast(t_linkedlist *ll, BOOL b);
+void					ft_linkedlist_removeat(t_linkedlist *ll, size_t i,
+		BOOL b);
+void					ft_linkedlist_removeall(t_linkedlist *ll, BOOL b);
+void					ft_linkedlist_expendlast(t_linkedlist *ll, size_t n);
+void					ft_linkedlist_expendfirst(t_linkedlist *ll, size_t n);
+void					ft_linkedlist_setat(t_linkedlist *ll, void *d,
+		size_t i);
+BOOL					ft_linkedlist_isempty(t_linkedlist *ll);
+BOOL					ft_linkedlist_containindex(t_linkedlist *ll, size_t i);
+
+typedef struct			s_arraylist
 {
-	void		**array;
-	size_t		Capacity;
-	size_t		Count;
-}			t_arraylist;
-void 			**ft_array_new(size_t n);
-size_t			ft_array_size(void **ar);
-void 			ft_array_free(void ***ar, bool alsodata);
-void 			**ft_array_dup(void **ar);
-bool 			ft_array_resize(void ***ar, size_t n);
-t_arraylist		*ft_arraylist_new(void);
-t_arraylist		*ft_arraylist_newn(size_t initial_size);
-void			ft_arraylist_free(t_arraylist **al, bool alsodata);
-bool			ft_arraylist_add(t_arraylist *al, void *data);
-bool 			ft_arraylist_addAll(t_arraylist *al, void **datas);
-void			*ft_arraylist_set(t_arraylist *al, size_t index, void *data);
-void 			ft_arraylist_trimtosize(t_arraylist *al);
-void			*ft_arraylist_get(t_arraylist *al, size_t index);
-bool			ft_arraylist_remove(t_arraylist *al, size_t index, bool free);
-size_t			ft_arraylist_clear(t_arraylist *al, bool alsodata);
-bool 			ft_arraylist_containIndex(t_arraylist *al, size_t index);
-bool 			ft_arraylist_isEmpty(t_arraylist *al);
-bool 			ft_arraylist_ensureCapacity(t_arraylist *al, size_t min);
-/*##############\                                                            |#*/
-/* END ARRAYLIST \______________________________________________________ ____/#*/
-/*############################################################################*/
+	void				**array;
+	size_t				capacity;
+	size_t				count;
+}						t_arraylist;
+void					**ft_array_new(size_t n);
+size_t					ft_array_size(void **ar);
+void					ft_array_free(void ***ar, BOOL alsodata);
+void					**ft_array_dup(void **ar);
+BOOL					ft_array_resize(void ***ar, size_t n);
+t_arraylist				*ft_arraylist_new(void);
+t_arraylist				*ft_arraylist_newn(size_t initial_size);
+void					ft_arraylist_free(t_arraylist **al, BOOL alsodata);
+BOOL					ft_arraylist_add(t_arraylist *al, void *data);
+BOOL					ft_arraylist_addall(t_arraylist *al, void **datas);
+void					*ft_arraylist_set(t_arraylist *al, size_t i, void *d);
+void					ft_arraylist_trimtosize(t_arraylist *al);
+void					*ft_arraylist_get(t_arraylist *al, size_t index);
+BOOL					ft_arraylist_remove(t_arraylist *al, size_t i, BOOL fr);
+size_t					ft_arraylist_clear(t_arraylist *al, BOOL alsodata);
+BOOL					ft_arraylist_containindex(t_arraylist *al, size_t i);
+BOOL					ft_arraylist_isempty(t_arraylist *al);
+BOOL					ft_arraylist_ensurecapacity(t_arraylist *al,
+		size_t min);
 
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                    Stack                                  #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-typedef 		t_arraylist t_stack;
-t_stack 		*ft_stack_new(void);
-void			ft_stack_free(t_stack **s, bool alsodata);
-void 			ft_stack_clear(t_stack *s, bool alsodata);
-void 			ft_stack_push(t_stack *s, void *data);
-void			*ft_stack_pop(t_stack *s);
-void			*ft_stack_peek(t_stack *s);
-bool			ft_stack_isEmpty(t_stack *s);
-/*##########\                                                                |#*/
-/*[END STACK \_______________________________________________________________/#*/
-/*############################################################################*/
+typedef t_arraylist		t_stack;
+t_stack					*ft_stack_new(void);
+void					ft_stack_free(t_stack **s, BOOL alsodata);
+void					ft_stack_clear(t_stack *s, BOOL alsodata);
+void					ft_stack_push(t_stack *s, void *data);
+void					*ft_stack_pop(t_stack *s);
+void					*ft_stack_peek(t_stack *s);
+BOOL					ft_stack_isempty(t_stack *s);
 
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                    Queue                                  #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-typedef 		t_linkedlist t_queue;
-t_queue 		*ft_queue_new(void);
-void 			ft_queue_free(t_queue **q, bool alsodata);
-void 			ft_queue_clear(t_queue *q, bool alsofree);
-bool 			ft_queue_enqueue(t_queue *q, void *data);
-void 			*ft_queue_dequeue(t_queue *q);
-/*##########\                                                                |#*/
-/* END QUEUE \_______________________________________________________________/#*/
-/*############################################################################*/
+typedef t_linkedlist	t_queue;
+t_queue					*ft_queue_new(void);
+void					ft_queue_free(t_queue **q, BOOL alsodata);
+void					ft_queue_clear(t_queue *q, BOOL alsofree);
+BOOL					ft_queue_enqueue(t_queue *q, void *data);
+void					*ft_queue_dequeue(t_queue *q);
 
-/*#############################################################################*/
-/*#                                                                           #*/
-/*#                                   Buffer                                  #*/
-/*#                                                                           #*/
-/*#############################################################################*/
-typedef t_arraylist 	t_buffer;
-typedef struct 		s_bufferseg
+typedef t_arraylist		t_buffer;
+typedef struct			s_bufferseg
 {
-	char 		data[32];
-	UInt8		len;
-}			t_bufferseg;
-t_bufferseg 		*ft_bufferseg_new(void);
-void 			ft_bufferseg_clear(t_bufferseg *bs);
-void 			ft_bufferseg_free(t_bufferseg **bs);
-void 			ft_bufferseg_setstr(t_bufferseg *seg, char *str);
-bool 			ft_bufferseg_addchr(t_bufferseg *bs, char c);
-bool 			ft_bufferseg_addstr(t_bufferseg *bs, char *str);
-bool 			ft_bufferseg_canAddstr(t_bufferseg *bs, char *str);
-bool 			ft_bufferseg_canAddchr(t_bufferseg *bs);
-char 			*ft_bufferseg_tostr(t_bufferseg *bs);
-t_buffer 		*ft_buffer_new(void);
-void 			ft_buffer_free(t_buffer **b);
-void 			ft_buffer_addchr(t_buffer *b, char c);
-void 			ft_buffer_addstr(t_buffer *b, char *str);
-size_t			ft_buffer_len(t_buffer *b);
-char 			**ft_buffer_toarray(t_buffer *b);
-char 			*ft_buffer_tostring(t_buffer *b);
-char 			*ft_buffer_tonstring(t_buffer *b, size_t n);
-/*###########\                                                               |#*/
-/* END BUFFER \______________________________________________________________/#*/
-/*############################################################################*/
+	INT8				data[32];
+	UINT8				len;
+}						t_bufferseg;
+t_bufferseg				*ft_bufferseg_new(void);
+void					ft_bufferseg_clear(t_bufferseg *bs);
+void					ft_bufferseg_free(t_bufferseg **bs);
+void					ft_bufferseg_setstr(t_bufferseg *seg, INT8 *str);
+BOOL					ft_bufferseg_addchr(t_bufferseg *bs, INT8 c);
+BOOL					ft_bufferseg_addstr(t_bufferseg *bs, INT8 *str);
+BOOL					ft_bufferseg_canaddstr(t_bufferseg *bs, INT8 *str);
+BOOL					ft_bufferseg_canaddchr(t_bufferseg *bs);
+INT8					*ft_bufferseg_tostr(t_bufferseg *bs);
+t_buffer				*ft_buffer_new(void);
+void					ft_buffer_free(t_buffer **b);
+void					ft_buffer_addchr(t_buffer *b, INT8 c);
+void					ft_buffer_addstr(t_buffer *b, INT8 *str);
+size_t					ft_buffer_len(t_buffer *b);
+INT8					**ft_buffer_toarray(t_buffer *b);
+INT8					*ft_buffer_tostring(t_buffer *b);
+INT8					*ft_buffer_tonstring(t_buffer *b, size_t n);
+
 #endif

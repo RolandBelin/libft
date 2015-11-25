@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:05:39 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:04:27 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-void		ft_putstr_fd(const char *str, int fd)
+void		ft_putstr_fd(const INT8 *str, INT32 fd)
 {
 	if (str)
 		write(fd, str, ft_strlen(str));

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_array_resize.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:00:00 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 22:47:48 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-bool 		ft_array_resize(void ***ar, size_t n)
+bool		ft_array_resize(void ***ar, size_t n)
 {
 	void	**nv;
-	size_t 	i;
+	size_t	i;
 	size_t	j;
 
 	nv = NULL;
@@ -23,8 +35,8 @@ bool 		ft_array_resize(void ***ar, size_t n)
 			}
 			free(*ar);
 			*ar = nv;
-			return (true);
+			return (TRUE);
 		}
 	}
-	return (false);
+	return (FALSE);
 }

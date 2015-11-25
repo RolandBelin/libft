@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:10:03 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:14:30 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-char			*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+INT8		*ft_strmapi(const INT8 *s, INT8 (*f)(UINT32, INT8))
 {
-	char		*dup;
-	unsigned int	i;
+	INT8	*dup;
+	UINT32	i;
 
 	i = 0;
 	if (s && f)
@@ -13,7 +25,7 @@ char			*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 		{
 			dup[i] = (*f)(i, s[i]);
 			++i;
-		}	
+		}
 	}
 	return (dup);
 }

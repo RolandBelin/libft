@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_array_dup.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 17:59:11 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 19:41:33 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-void 				**ft_array_dup(void **ar)
+void		**ft_array_dup(void **ar)
 {
-	void 			**dup;
-	size_t			sar;
-	size_t			i;
+	void	**dup;
+	size_t	sar;
+	size_t	i;
 
 	i = 0;
 	dup = NULL;

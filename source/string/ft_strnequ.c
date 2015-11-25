@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:10:21 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:15:52 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-int		ft_strnequ(const char *s1, const char *s2, size_t n)
+INT32		ft_strnequ(const INT8 *s1, const INT8 *s2, size_t n)
 {
 	if (s1 && s2)
 	{

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_aatoa.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:02:16 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 22:59:56 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-static size_t	ft_calcullen(char **ar)
+static size_t	ft_calcullen(INT8 **ar)
 {
-	size_t		nb;
-	size_t		total;
+	size_t	nb;
+	size_t	total;
 
 	total = 0;
 	if (ar && *ar)
@@ -18,10 +30,10 @@ static size_t	ft_calcullen(char **ar)
 	return (nb);
 }
 
-char 			*ft_aatoa(char **ar)
+INT8			*ft_aatoa(INT8 **ar)
 {
-	size_t	 	n;
-	char 		*ret;
+	size_t	n;
+	INT8	*ret;
 
 	n = 0;
 	if (ar && *ar && (ret = ft_strnew(ft_calcullen(ar))) != NULL)

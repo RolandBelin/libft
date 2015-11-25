@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:09:37 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:12:52 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-void			ft_striteri(char *s, void (*f)(unsigned int, char *))
+void			ft_striteri(INT8 *s, void (*f)(UINT32, INT8 *))
 {
-	unsigned int	i;
+	UINT32	i;
 
 	i = 0;
 	if (s && f)

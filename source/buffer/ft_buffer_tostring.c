@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_buffer_tostring.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:00:17 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:27:16 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-void 				ft_myfree(char ***tab)
+void				ft_myfree(char ***tab)
 {
 	size_t			i;
 
@@ -16,14 +28,14 @@ void 				ft_myfree(char ***tab)
 	tab = NULL;
 }
 
-char 				*ft_buffer_tostring(t_buffer *b)
+INT8				*ft_buffer_tostring(t_buffer *b)
 {
-	char 	**tab;
-	char 	*ret;
+	INT8	**tab;
+	INT8	*ret;
 
 	tab = NULL;
 	ret = NULL;
-	if (!ft_arraylist_isEmpty(b))
+	if (!ft_arraylist_isempty(b))
 	{
 		tab = ft_buffer_toarray(b);
 		ret = ft_aatoa(tab);

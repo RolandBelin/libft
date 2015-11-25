@@ -1,8 +1,8 @@
 CC = 						gcc
-CFLAG = 					
-NAME = 						test
+CFLAG = 					-Wall -Wextra -Werror
+NAME = 						libft.a
 OBJECTS =  				    $(shell find objects/ -type f)
-SOURCES = 					$(shell find source/ -type f)
+SOURCES = 					$(shell find ./*.c -type f)
 
 all: $(NAME)
 
@@ -18,4 +18,5 @@ OBJECTS_MAKE:
 	gcc -c $(SOURCES) $(CFLAG) && mv $(addsuffix .o, $(basename $(notdir $(SOURCES)))) objects/
 
 $(NAME): OBJECTS_MAKE
-	$(CC)  $(OBJECTS) 
+	ar rc $(NAME) $(OBJECTS)
+	ranlib $(NAME)

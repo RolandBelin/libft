@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstartstr.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:10:46 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:19:15 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-bool 		ft_strstartstr(const char *str, const char *start)
+bool		ft_strstartstr(const INT8 *str, const INT8 *start)
 {
 	size_t	i;
 
 	i = 0;
 	if ((!str && !start) || (!*str && !*start))
-		return (true);
+		return (TRUE);
 	else if ((!str || !start) || (!*str || !*start))
-		return (false);
+		return (FALSE);
 	while (str[i] && start[i] && str[i] == start[i])
 		++i;
 	if (start[i] == '\0')
-		return (true);
+		return (TRUE);
 	else
-		return (false);
+		return (FALSE);
 }

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:10:34 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:18:50 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-static size_t		ft_strsplit_listlen(const char *s, char c)
+static size_t		ft_strsplit_listlen(const INT8 *s, INT8 c)
 {
-	unsigned int	inner;
-	unsigned int	i;
+	UINT32			inner;
+	UINT32			i;
 	size_t			len;
 
 	inner = 0;
@@ -26,9 +38,9 @@ static size_t		ft_strsplit_listlen(const char *s, char c)
 	return (len);
 }
 
-static size_t	ft_len(const char *s, char c)
+static size_t		ft_len(const INT8 *s, INT8 c)
 {
-	size_t		len;
+	size_t			len;
 
 	len = 0;
 	while (s[len] != c && s[len])
@@ -36,15 +48,15 @@ static size_t	ft_len(const char *s, char c)
 	return (len);
 }
 
-char			**ft_strsplit(const char *s, char c)
+INT8				**ft_strsplit(const INT8 *s, INT8 c)
 {
-	char		**list;
-	size_t		len;
-	int		i;
+	INT8			**list;
+	size_t			len;
+	INT32			i;
 
 	i = 0;
 	len = ft_strsplit_listlen(s, c);
-	list = (char **)malloc(sizeof(char *) * (len + 1));
+	list = (INT8 **)malloc(sizeof(INT8 *) * (len + 1));
 	if (list && len)
 	{
 		while (len)

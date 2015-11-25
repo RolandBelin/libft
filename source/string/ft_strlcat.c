@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:09:53 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:13:30 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t		ft_strlcat(INT8 *dst, const INT8 *src, size_t dstsize)
 {
 	size_t	s_dst;
 	size_t	s_src;
@@ -17,5 +29,5 @@ size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 		++i;
 	}
 	dst[s_dst + i] = '\0';
-	return (s_dst + s_src);	
+	return (s_dst + s_src);
 }

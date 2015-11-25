@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_queue_enqueue.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:08:12 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:26:11 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
 bool		ft_queue_enqueue(t_queue *q, void *data)
 {
 	if (q == NULL)
-		return (false);
+		return (FALSE);
 	if (data)
-		ft_linkedlist_addLast(q, data);
-	return (true);
+		ft_linkedlist_addlast(q, data);
+	return (TRUE);
 }

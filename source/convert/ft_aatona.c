@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_aatona.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:02:22 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:00:42 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-static size_t	ft_calcullen(char **ar)
+static size_t	ft_calcullen(INT8 **ar)
 {
 	size_t		nb;
 	size_t		total;
@@ -18,9 +30,9 @@ static size_t	ft_calcullen(char **ar)
 	return (nb);
 }
 
-static bool		ft_myadd(char *ar, char *str, size_t len, size_t max)
+static bool		ft_myadd(INT8 *ar, INT8 *str, size_t len, size_t max)
 {
-	size_t 		a;
+	size_t		a;
 
 	a = 0;
 	if (len > max)
@@ -28,18 +40,18 @@ static bool		ft_myadd(char *ar, char *str, size_t len, size_t max)
 		a = ft_strlen(ar);
 		a = a - (len - max);
 		str = ft_strncat(str, ar, a);
-		return (false);
+		return (FALSE);
 	}
 	else
 		str = ft_strcat(str, ar);
-	return (true);
+	return (TRUE);
 }
 
-char 			*ft_aatona(char **ar, size_t max)
+INT8			*ft_aatona(INT8 **ar, size_t max)
 {
 	size_t		len;
-	size_t	 	n;
-	char 		*ret;
+	size_t		n;
+	INT8		*ret;
 
 	n = 0;
 	len = ft_calcullen(ar);
@@ -51,7 +63,7 @@ char 			*ft_aatona(char **ar, size_t max)
 		{
 			len = len + ft_strlen(ar[n]);
 			if (!ft_myadd(ar[n], ret, len, max))
-				break;
+				break ;
 			++n;
 		}
 	}

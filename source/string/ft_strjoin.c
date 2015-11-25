@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbelin <rbelin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/24 18:09:45 by rbelin            #+#    #+#             */
+/*   Updated: 2015/11/24 23:13:17 by rbelin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-char		*ft_strjoin(const char *s1, const char *s2)
+INT8		*ft_strjoin(const INT8 *s1, const INT8 *s2)
 {
-	char	*str;
+	INT8	*str;
 	size_t	s_s1;
-	size_t 	s_s2;
+	size_t	s_s2;
 
 	if (!s1 && !s2)
 		return (NULL);
